@@ -21,7 +21,7 @@ public class NetworkManager : MonoBehaviourPunCallbacks
     {
         Debug.Log("Connected to server.");
         base.OnConnectedToMaster();
-        RoomOptions RoomOptions = new RoomOptions();
+        RoomOptions roomOptions = new RoomOptions();
         roomOptions.MaxPlayers = 2;
         roomOptions.IsVisible = true;
         roomOptions.IsOpen = true;
@@ -33,6 +33,10 @@ public class NetworkManager : MonoBehaviourPunCallbacks
         Debug.Log("Joined a Room");
         base.OnJoinedRoom();
     }
-
+    public override void OnPlayerEnteredRoom(Player newPlayer)
+    {
+        Debug.Log("A new player entered the room");
+        base.OnPlayerEnteredRoom(newPlayer);
+    }
 }
 
